@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Story — Admin</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ============ SHARED LOGOMARK DEFS (same mark as the landing page) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="ss-logomark-def">
+      <line x1="8"  y1="14" x2="8"  y2="86"/>
+      <line x1="20" y1="14" x2="20" y2="86"/>
+      <line x1="32" y1="14" x2="32" y2="86"/>
+      <line x1="44" y1="14" x2="44" y2="86"/>
+      <path d="M56,14 C56,40 70,40 70,60 C70,80 56,80 56,86"/>
+      <path d="M70,14 C90,30 50,45 70,60 C90,75 78,80 86,86"/>
+      <path d="M84,14 C100,32 68,48 88,62 C100,72 96,78 100,86"/>
+      <path d="M98,16 C108,30 92,40 102,52 C112,64 104,76 110,86"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-mark logomark-lockup">
+      <svg class="logomark" viewBox="0 0 120 100"><use href="#ss-logomark-def" fill="none" stroke="currentColor"/></svg>
+      <span class="logomark-text">Style Story<span class="sub">Admin</span></span>
+    </div>
+    <p class="login-hint">Sign in to manage bookings, services, and content.</p>
+    <form id="login-form">
+      <div class="login-field">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" autocomplete="username" required>
+      </div>
+      <div class="login-field">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="login-btn" id="login-btn">Sign in</button>
+      <p class="login-error" id="login-error"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ============ APP SHELL ============ -->
+<div id="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand logomark-lockup">
+      <svg class="logomark" viewBox="0 0 120 100"><use href="#ss-logomark-def" fill="none" stroke="currentColor"/></svg>
+      <span class="logomark-text">Style Story<span class="sub">Admin</span></span>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <button class="nav-item active" data-view="dashboard"><span class="nav-icon">◆</span>Dashboard</button>
+      <button class="nav-item" data-view="bookings"><span class="nav-icon">◆</span>Bookings</button>
+      <button class="nav-item" data-view="services"><span class="nav-icon">◆</span>Services</button>
+      <button class="nav-item" data-view="gallery"><span class="nav-icon">◆</span>Gallery</button>
+      <button class="nav-item" data-view="testimonials"><span class="nav-icon">◆</span>Testimonials</button>
+      <button class="nav-item" data-view="stylists"><span class="nav-icon">◆</span>Stylists</button>
+      <button class="nav-item" data-view="offers"><span class="nav-icon">◆</span>Offers</button>
+      <button class="nav-item" data-view="settings"><span class="nav-icon">◆</span>Settings</button>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="index.html" target="_blank" class="sidebar-view-site">View live site ↗</a>
+      <button id="logout-btn" class="sidebar-logout">Log out</button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <h1 class="topbar-title" id="topbar-title">Dashboard</h1>
+      <div class="topbar-right">
+        <span class="topbar-date" id="topbar-date"></span>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+
+      <!-- ===== DASHBOARD ===== -->
+      <section class="view" data-view-panel="dashboard">
+        <div class="stat-grid" id="dash-stat-grid">
+          <div class="skeleton-card"></div><div class="skeleton-card"></div>
+          <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        </div>
+        <div class="dash-grid">
+          <div class="panel">
+            <div class="panel-head"><h2>Recent activity</h2></div>
+            <div id="dash-recent-activity" class="recent-list"><p class="muted">Loading…</p></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Quick stats</h2></div>
+            <div id="dash-quick-stats" class="quick-stats"><p class="muted">Loading…</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BOOKINGS ===== -->
+      <section class="view" data-view-panel="bookings">
+        <div class="toolbar">
+          <input type="search" id="bookings-search" class="toolbar-search" placeholder="Search by name or phone…">
+          <select id="bookings-filter-status" class="toolbar-select">
+            <option value="">All statuses</option>
+            <option>Pending</option><option>Confirmed</option><option>Completed</option><option>Cancelled</option>
+          </select>
+          <select id="bookings-sort" class="toolbar-select">
+            <option value="date-desc">Newest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="appt-asc">Upcoming appointment</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="bookings-table">
+            <thead>
+              <tr><th>Customer</th><th>Service</th><th>Stylist</th><th>Date &amp; time</th><th>Status</th><th>WhatsApp</th><th></th></tr>
+            </thead>
+            <tbody id="bookings-tbody"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section class="view" data-view-panel="services">
+        <div class="toolbar">
+          <button class="btn-gold" id="services-add-btn">+ Add service</button>
+        </div>
+        <div class="card-grid" id="services-grid"><p class="muted">Loading…</p></div>
+      </section>
+
+      <!-- ===== GALLERY ===== -->
+      <section class="view" data-view-panel="gallery">
+        <div class="toolbar">
+          <button class="btn-gold" id="gallery-add-btn">+ Upload photo</button>
+          <span class="toolbar-hint">Drag tiles to reorder</span>
+        </div>
+        <div class="media-grid" id="gallery-grid"><p class="muted">Loading…</p></div>
+      </section>
+
+      <!-- ===== TESTIMONIALS ===== -->
+      <section class="view" data-view-panel="testimonials">
+        <div class="toolbar">
+          <button class="btn-gold" id="testimonials-add-btn">+ Add testimonial</button>
+        </div>
+        <div class="card-grid" id="testimonials-grid"><p class="muted">Loading…</p></div>
+      </section>
+
+      <!-- ===== STYLISTS ===== -->
+      <section class="view" data-view-panel="stylists">
+        <div class="toolbar">
+          <button class="btn-gold" id="stylists-add-btn">+ Add stylist</button>
+        </div>
+        <div class="card-grid" id="stylists-grid"><p class="muted">Loading…</p></div>
+      </section>
+
+      <!-- ===== OFFERS ===== -->
+      <section class="view" data-view-panel="offers">
+        <div class="toolbar">
+          <button class="btn-gold" id="offers-add-btn">+ Add offer</button>
+        </div>
+        <div class="card-grid" id="offers-grid"><p class="muted">Loading…</p></div>
+      </section>
+
+      <!-- ===== SETTINGS ===== -->
+      <section class="view" data-view-panel="settings">
+        <form class="settings-form" id="settings-form">
+          <div class="panel">
+            <div class="panel-head"><h2>Business information</h2></div>
+            <div class="form-grid">
+              <div class="form-field"><label>Business name</label><input type="text" name="business_name" required></div>
+              <div class="form-field"><label>Phone (displayed)</label><input type="text" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+              <div class="form-field"><label>WhatsApp number</label><input type="text" name="whatsapp" placeholder="91XXXXXXXXXX"></div>
+              <div class="form-field"><label>Email</label><input type="email" name="email"></div>
+              <div class="form-field form-field-wide"><label>Address</label><input type="text" name="address"></div>
+              <div class="form-field"><label>Working hours</label><input type="text" name="working_hours"></div>
+              <div class="form-field"><label>Instagram</label><input type="text" name="instagram" placeholder="@handle"></div>
+              <div class="form-field"><label>Facebook</label><input type="text" name="facebook"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>Branding &amp; media</h2></div>
+            <div class="form-grid">
+              <div class="image-upload-field" data-field="logo"><label>Logo</label><div class="image-upload-box" data-upload="logo"></div></div>
+              <div class="image-upload-field" data-field="favicon"><label>Favicon</label><div class="image-upload-box" data-upload="favicon"></div></div>
+              <div class="image-upload-field" data-field="hero_image"><label>Hero image</label><div class="image-upload-box" data-upload="hero_image"></div></div>
+            </div>
+            <div class="form-field" style="margin-top:1.2rem;">
+              <label>Hero video URL <span class="optional">(optional, mp4 link)</span></label>
+              <input type="text" name="hero_video" placeholder="https://…">
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>SEO</h2></div>
+            <div class="form-grid">
+              <div class="form-field form-field-wide"><label>SEO title</label><input type="text" name="seo_title"></div>
+              <div class="form-field form-field-wide"><label>SEO description</label><textarea name="seo_description" rows="2"></textarea></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>Storage cleanup</h2></div>
+            <p class="muted" style="margin-bottom:1rem;">Removes any uploaded photo that is no longer attached to a service, gallery item, testimonial, stylist or offer.</p>
+            <button type="button" class="btn-ghost-admin" id="cleanup-btn">Clean up unused files</button>
+            <span id="cleanup-result" class="cleanup-result"></span>
+          </div>
+
+          <div class="settings-save-bar">
+            <button type="submit" class="btn-gold" id="settings-save-btn">Save settings</button>
+            <span class="save-confirm" id="settings-save-confirm">Saved ✓</span>
+          </div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ============ MODAL (re-used by every CRUD module) ============ -->
+<div id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <h2 id="modal-title">Add item</h2>
+      <button id="modal-close" aria-label="Close">×</button>
+    </div>
+    <form id="modal-form" class="modal-form"></form>
+  </div>
+</div>
+
+<!-- ============ TOASTS ============ -->
+<div id="toast-host" aria-live="polite"></div>
+
+<script>
+  window.__STYLE_STORY_CONFIG__ = {
+    SUPABASE_URL: "https://xzzfljqzysgrqwuithvm.supabase.co",
+    SUPABASE_ANON_KEY: "sb_publishable_iwXVzAS5-AgLbgWSdPMXKg_eBd9kX2C",
+    WHATSAPP_NUMBER: "919623626993"
+  };
+</script>
+<script type="module" src="services/auth.service.js"></script>
+<script type="module" src="services/upload.service.js"></script>
+<script type="module" src="repositories/repository.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

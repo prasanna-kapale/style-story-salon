@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Story — Salon &amp; Skin Atelier, Nagpur</title>
+<meta name="description" content="Style Story is Nagpur's premium salon and skin atelier on Hill Road — hair, colour, treatments, bridal, and skin, since 2015.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Style Story — Salon & Skin Atelier, Nagpur">
+<meta property="og:description" content="Where every visit becomes your story. Premium hair, skin, and bridal artistry in Nagpur since 2015.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ SIGNATURE INTRO (logomark: lines become waves) ============ -->
+<div id="intro" aria-hidden="true">
+  <svg id="intro-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+    <line id="i-line-1" x1="8"  y1="14" x2="8"  y2="86"/>
+    <line id="i-line-2" x1="20" y1="14" x2="20" y2="86"/>
+    <line id="i-line-3" x1="32" y1="14" x2="32" y2="86"/>
+    <line id="i-line-4" x1="44" y1="14" x2="44" y2="86"/>
+    <line id="i-line-5" x1="56" y1="14" x2="56" y2="86"/>
+    <line id="i-line-6" x1="68" y1="14" x2="68" y2="86"/>
+    <line id="i-line-7" x1="80" y1="14" x2="80" y2="86"/>
+    <line id="i-line-8" x1="92" y1="14" x2="92" y2="86"/>
+  </svg>
+</div>
+
+<!-- ============ HIDDEN SVG: shared logomark + line-wave texture defs ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="ss-logomark-def">
+      <line x1="8"  y1="14" x2="8"  y2="86"/>
+      <line x1="20" y1="14" x2="20" y2="86"/>
+      <line x1="32" y1="14" x2="32" y2="86"/>
+      <line x1="44" y1="14" x2="44" y2="86"/>
+      <path d="M56,14 C56,40 70,40 70,60 C70,80 56,80 56,86"/>
+      <path d="M70,14 C90,30 50,45 70,60 C90,75 78,80 86,86"/>
+      <path d="M84,14 C100,32 68,48 88,62 C100,72 96,78 100,86"/>
+      <path d="M98,16 C108,30 92,40 102,52 C112,64 104,76 110,86"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ============ CURSOR GLOW (desktop only) ============ -->
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div id="scroll-progress" aria-hidden="true"><div id="scroll-progress-bar"></div></div>
+
+<!-- ============ NAV ============ -->
+<nav id="site-nav">
+  <a href="#top" id="navbar-logo" class="nav-logo logomark-lockup">
+    <svg class="logomark" viewBox="0 0 120 100">
+        <use href="#ss-logomark-def"
+             fill="none"
+             stroke="currentColor"/>
+    </svg>
+
+    <span class="logomark-text">
+        Style Story
+        <span class="sub">Salons</span>
+    </span>
+</a>
+  <ul class="nav-links">
+    <li><a href="#about" data-magnetic>The Story</a></li>
+    <li><a href="#services" data-magnetic>Services</a></li>
+    <li><a href="#gallery" data-magnetic>Gallery</a></li>
+    <li><a href="#testimonials" data-magnetic>Reviews</a></li>
+    <li><a href="#contact" data-magnetic>Visit</a></li>
+  </ul>
+  <button class="nav-book" id="nav-book-btn" data-magnetic>Book Now</button>
+  <button id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ MOBILE MENU ============ -->
+<div id="mobile-menu">
+  <ul>
+    <li><a href="#about">The Story</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Visit</a></li>
+  </ul>
+  <button class="btn-primary" id="mobile-book-btn">Book an appointment</button>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-grain" aria-hidden="true"></div>
+    <svg class="hero-lines-bg" viewBox="0 0 120 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <use href="#ss-logomark-def" fill="none" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
+    <p class="hero-eyebrow" data-reveal>Hill Road · Nagpur · Est. 2015</p>
+    <h1 class="hero-title" data-reveal-lines>
+      <span class="line"><span class="word">Every</span> <span class="word">cut</span> <span class="word">is</span></span>
+      <span class="line"><span class="word i">a</span> <span class="word i"><em>chapter.</em></span></span>
+    </h1>
+    <p class="hero-sub" data-reveal>Salon &amp; Skin Atelier</p>
+    <div class="hero-rating" data-reveal>
+      <span class="stars">★★★★★</span>
+      <span class="rating-text">4.7 · 353 reviews on Google</span>
+    </div>
+    <div class="hero-btns" data-reveal>
+      <button class="btn-primary" data-magnetic id="hero-book-btn">Book an appointment</button>
+      <a href="#services" class="btn-ghost" data-magnetic>Explore services</a>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-label" data-reveal>01 — Who we are</p>
+        <h2 class="section-title" data-reveal>Where every visit<br>becomes <em>your story</em>.</h2>
+        <p class="about-body" data-reveal>
+          Style Story has been Nagpur's destination for premium hair and skin since 2015.
+          Within these walls, eleven years of craft meet the warmth of a neighbourhood you
+          already know — global technique, delivered like an old friend remembers your name.
+        </p>
+      </div>
+      <div class="about-stats" data-reveal>
+        <div class="stat-item">
+          <span class="stat-num" data-count="353">0</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="4.7" data-decimal="true">0</span>
+          <span class="stat-label">Google Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="10">0</span>
+          <span class="stat-label">Expert Stylists</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="11">0</span>
+          <span class="stat-label">Years in Nagpur</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <p class="section-label" data-reveal>02 — What we do</p>
+    <h2 class="section-title" data-reveal>Considered <em>care</em>,<br>category by category.</h2>
+    <div class="services-tabs" id="services-tabs" data-reveal></div>
+    <div class="services-list" id="services-list"><!-- populated by JS --></div>
+  </section>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <section id="transform">
+    <p class="section-label" data-reveal>03 — The result</p>
+    <h2 class="section-title" data-reveal>See the <em>transformation</em>.</h2>
+    <div class="ba-wrap" data-reveal>
+      <div class="ba-frame" id="ba-frame">
+        <div class="ba-side ba-before">
+          <span class="ba-tag">Before</span>
+        </div>
+        <div class="ba-side ba-after" id="ba-after">
+          <span class="ba-tag">After</span>
+        </div>
+        <div class="ba-handle" id="ba-handle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 9l-4 3 4 3M18 9l4 3-4 3M2 12h20"/></svg>
+        </div>
+      </div>
+      <p class="ba-caption">Drag the comb to reveal the change.</p>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery">
+    <div class="gallery-header">
+      <div>
+        <p class="section-label" data-reveal>04 — Our work</p>
+        <h2 class="section-title" data-reveal>Transformations<br>that <em>speak</em>.</h2>
+      </div>
+      <p class="gallery-hint" data-reveal>Scroll, or drag →</p>
+    </div>
+    <div class="gallery-track-wrap">
+      <div class="gallery-track" id="gallery-track"><!-- populated by JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team">
+    <p class="section-label" data-reveal>05 — Meet the atelier</p>
+    <h2 class="section-title" data-reveal>The hands behind<br>every <em>story</em>.</h2>
+    <div class="team-grid" id="team-grid"><!-- populated by JS --></div>
+  </section>
+
+  <!-- ============ BRANDS ============ -->
+  <section id="brands">
+    <p class="section-label" data-reveal>06 — What we work with</p>
+    <div class="brands-marquee" aria-label="Brands we use">
+      <div class="brands-track">
+        <span>L'Oréal Professionnel</span><span>·</span>
+        <span>Schwarzkopf</span><span>·</span>
+        <span>Wella</span><span>·</span>
+        <span>Olaplex</span><span>·</span>
+        <span>Kevin Murphy</span><span>·</span>
+        <span>L'Oréal Professionnel</span><span>·</span>
+        <span>Schwarzkopf</span><span>·</span>
+        <span>Wella</span><span>·</span>
+        <span>Olaplex</span><span>·</span>
+        <span>Kevin Murphy</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials">
+    <p class="section-label" data-reveal>07 — What clients say</p>
+    <h2 class="section-title" data-reveal>Trusted by <em>Nagpur</em>.</h2>
+    <div class="testimonials-track-wrap" data-reveal>
+      <div class="testimonials-track" id="testimonials-track"><!-- populated by JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <p class="section-label" data-reveal>08 — Good to know</p>
+    <h2 class="section-title" data-reveal>Frequently<br><em>asked</em>.</h2>
+    <div class="faq-list" id="faq-list" data-reveal>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Do I need to book in advance?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Walk-ins are welcome based on chair availability, but booking ahead — especially for colour, keratin, or bridal services — guarantees your preferred time and stylist.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>How far in advance should I book bridal makeup?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>We recommend locking your date at least four weeks out, with a trial session two to three weeks before the wedding day.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What brands do you use?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>We work exclusively with premium international lines — L'Oréal Professionnel, Schwarzkopf, Wella, Olaplex, and Kevin Murphy — across colour, treatment, and styling.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Can I reschedule or cancel my appointment?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes — message us on WhatsApp at least four hours before your slot and we'll happily move it for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING ============ -->
+  <section id="book">
+    <div class="book-inner">
+      <div class="book-info">
+        <p class="section-label" data-reveal>09 — Ready to visit?</p>
+        <h2 class="section-title" data-reveal>Book your<br><em>appointment</em>.</h2>
+        <p class="book-body" data-reveal>Tell us what you're after — we'll confirm your slot over WhatsApp, usually within thirty minutes.</p>
+      </div>
+      <div class="book-form-wrap" data-reveal>
+        <div class="book-progress">
+          <span class="step active" data-step="1">1</span>
+          <span class="step-line"></span>
+          <span class="step" data-step="2">2</span>
+          <span class="step-line"></span>
+          <span class="step" data-step="3">3</span>
+          <span class="step-line"></span>
+          <span class="step" data-step="4">4</span>
+        </div>
+
+        <form id="booking-form">
+          <!-- STEP 1: SERVICE -->
+          <div class="book-step active" data-step-panel="1">
+            <p class="book-step-label">Choose a service</p>
+            <div class="service-pick-grid" id="service-pick-grid"><!-- JS --></div>
+          </div>
+
+          <!-- STEP 2: STYLIST + DATE/TIME -->
+          <div class="book-step" data-step-panel="2">
+            <p class="book-step-label">Pick a stylist <span class="optional">(optional)</span></p>
+            <div class="stylist-pick-grid" id="stylist-pick-grid"><!-- JS --></div>
+            <div class="form-row" style="margin-top:1.6rem;">
+              <div class="form-field">
+                <label for="book-date">Preferred date</label>
+                <input type="date" id="book-date" name="date" required>
+              </div>
+              <div class="form-field">
+                <label for="book-time">Preferred time</label>
+                <select id="book-time" name="time" required>
+                  <option value="">Select a time</option>
+                  <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+                  <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+                  <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: CONTACT DETAILS -->
+          <div class="book-step" data-step-panel="3">
+            <p class="book-step-label">Your details</p>
+            <div class="form-field">
+              <label for="book-name">Full name</label>
+              <input type="text" id="book-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="book-phone">Phone number</label>
+              <input type="tel" id="book-phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+            <div class="form-field">
+              <label for="book-notes">Additional notes <span class="optional">(optional)</span></label>
+              <textarea id="book-notes" name="notes" placeholder="Anything we should know?" rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- STEP 4: REVIEW -->
+          <div class="book-step" data-step-panel="4">
+            <p class="book-step-label">Review &amp; confirm</p>
+            <div class="book-summary" id="book-summary"><!-- JS --></div>
+          </div>
+        </form>
+
+        <div class="book-nav">
+          <button type="button" class="btn-ghost-dark" id="book-back-btn" style="visibility:hidden;">Back</button>
+          <button type="button" class="btn-primary" id="book-next-btn">Continue</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <p class="section-label" data-reveal>10 — Get in touch</p>
+    <h2 class="section-title" data-reveal>Visit <em>us</em>.</h2>
+    <div class="contact-grid">
+      <div class="contact-details" data-reveal>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><p class="contact-label">Address</p><p class="contact-value" id="contact-address"></p></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><p class="contact-label">Hours</p><p class="contact-value" id="contact-hours"></p></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.18 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><p class="contact-label">Phone</p><p class="contact-value" id="contact-phone"></p></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          <div><p class="contact-label">Instagram</p><p class="contact-value" id="contact-instagram"></p></div>
+        </div>
+        <a href="#" class="btn-wa-large" id="contact-wa-btn" data-magnetic>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.4 5.15L2 22l5.13-1.45a9.86 9.86 0 0 0 4.91 1.32h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+      <div class="map-frame" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p>Hill Road, Nagpur</p>
+        <span class="map-rating">★ 4.7 · 353 reviews</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <svg class="footer-lines-bg" viewBox="0 0 120 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <use href="#ss-logomark-def" fill="none" stroke="currentColor" stroke-width="2"/>
+  </svg>
+  <div class="footer-top">
+    <div class="footer-logo logomark-lockup">
+      <svg class="logomark" viewBox="0 0 120 100"><use href="#ss-logomark-def" fill="none" stroke="currentColor"/></svg>
+      <span class="logomark-text">Style Story</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#book">Book</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <p class="footer-copy">© 2026 Style Story. 247, Hill Road, Nagpur. All rights reserved.</p>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<button id="float-wa" aria-label="Chat on WhatsApp" data-magnetic>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.4 5.15L2 22l5.13-1.45a9.86 9.86 0 0 0 4.91 1.32h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+</button>
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Close">×</button>
+  <div id="lightbox-content"></div>
+</div>
+
+<script>
+  window.__STYLE_STORY_CONFIG__ = {
+    SUPABASE_URL: "https://xzzfljqzysgrqwuithvm.supabase.co",
+    SUPABASE_ANON_KEY: "sb_publishable_iwXVzAS5-AgLbgWSdPMXKg_eBd9kX2C",
+    WHATSAPP_NUMBER: "919623626993"
+  };
+</script>
+<script type="module" src="repositories/repository.js"></script>
+<script type="module" src="services/booking.service.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script type="module" src="js/script.js"></script>
+</body>
+</html>
