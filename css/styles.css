@@ -206,21 +206,112 @@ body:not(.intro-done) { overflow: hidden; height: 100vh; }
 #site-nav.scrolled .nav-book:hover { background: var(--bone); border-color: var(--bone); }
 
 #nav-burger {
-  display: none; background: none; border: none; cursor: pointer;
-  width: 28px; height: 20px; flex-direction: column; justify-content: space-between;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* 48px touch target */
+  width: 48px;
+  height: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 0;
+  margin-right: -10px; /* optical alignment with edge */
 }
-#nav-burger span { display: block; height: 1px; background: var(--black); transition: all 0.3s; }
-#site-nav.scrolled #nav-burger span { background: var(--bone); }
+#nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--bone);
+  border-radius: 1px;
+  transition: transform 0.38s var(--ease), opacity 0.22s ease, width 0.3s var(--ease);
+  transform-origin: center;
+}
+/* Animated X when open */
+#nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+#nav-burger.open span:nth-child(2) { opacity: 0; width: 0; }
+#nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+/* Compact slide-down dropdown — sits inside #site-nav, drops below it */
 #mobile-menu {
-  position: fixed; inset: 0; z-index: 140; background: var(--black);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
-  transform: translateY(-100%); transition: transform 0.5s var(--ease);
+  /* Position flush under the nav bar */
+  position: absolute;
+  top: 100%; /* drops from the bottom edge of #site-nav */
+  left: 0;
+  right: 0;
+  z-index: 139;
+
+  /* Compact, content-height panel */
+  background: rgba(14, 14, 16, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--gold-glow);
+  border-bottom: 1px solid var(--line-light);
+
+  /* Slide animation via clip-path + opacity — no height jumping */
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    clip-path 0.42s var(--ease),
+    opacity 0.32s ease;
 }
-#mobile-menu.open { transform: translateY(0); }
-#mobile-menu ul { list-style: none; text-align: center; }
-#mobile-menu li { margin: 1.4rem 0; }
-#mobile-menu a { font-family: var(--display); font-size: 30px; color: var(--bone); font-weight: 300; }
+#mobile-menu.open {
+  clip-path: inset(0 0 0% 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#mobile-menu ul {
+  list-style: none;
+  padding: 0.6rem 0 0.4rem;
+}
+#mobile-menu li {
+  border-bottom: 1px solid var(--line-light);
+}
+#mobile-menu li:last-child {
+  border-bottom: none;
+}
+#mobile-menu a {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 56px; /* 56px touch target, generous but not bloated */
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(246, 244, 239, 0.75);
+  transition: color 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+}
+#mobile-menu a:hover,
+#mobile-menu a:active {
+  color: var(--gold);
+  background: rgba(201, 168, 118, 0.06);
+}
+/* Small gold left-accent on active tap */
+#mobile-menu a:active {
+  border-left: 2px solid var(--gold);
+  padding-left: calc(1.5rem - 2px);
+}
+
+/* Bottom row: Book button */
+.mobile-menu-foot {
+  padding: 1rem 1.5rem 1.3rem;
+  border-top: 1px solid var(--line-light);
+}
+.mobile-menu-foot .btn-primary {
+  width: 100%;
+  min-height: 52px;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
 
 /* ===================== SECTION DEFAULTS ===================== */
 section { padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 4rem); position: relative; }
@@ -499,14 +590,37 @@ footer { background: var(--black); padding: 3.5rem clamp(1.5rem, 5vw, 4rem) 2rem
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
+  /* Nav: taller bar, larger logo, show burger */
+  #site-nav {
+    min-height: 70px;
+    padding: 0 1.5rem;
+    /* overflow visible so dropdown can escape */
+    overflow: visible;
+  }
+  #site-nav.scrolled {
+    padding: 0 1.5rem;
+    min-height: 64px;
+  }
+
+  /* Bigger logomark and wordmark on mobile */
+  .nav-logo .logomark { width: 38px; height: 38px; }
+  .nav-logo .logomark-text { font-size: 1.2rem; }
+  .nav-logo .logomark-text .sub { font-size: 0.6rem; letter-spacing: 4px; margin-top: 2px; }
+
   .nav-links { display: none; }
+  .nav-book { display: none; }
   #nav-burger { display: flex; }
+
+  /* Layout fixes */
   .about-inner, .book-inner, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .form-row { grid-template-columns: 1fr; }
   .gallery-item { width: 78vw; height: 360px; }
   .gallery-item.featured { width: 88vw; }
   .t-card { width: 84vw; }
   .hero-lines-bg { width: 70%; opacity: 0.04; }
+
+  /* Hero: reduce top gap since nav is now compact, not full-screen */
+  #hero { padding-top: 5rem; }
 }
 @media (max-width: 560px) {
   section { padding: 4rem 1.25rem; }

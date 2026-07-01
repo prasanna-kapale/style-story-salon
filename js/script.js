@@ -107,11 +107,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateScrollProgress();
   }, { passive: true });
 
-  burger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    burger.setAttribute('aria-expanded', isOpen);
+  /* ── Mobile menu helpers ── */
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    // No body scroll lock — dropdown is compact, page stays scrollable behind it
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
   });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Close on any nav link click
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Click outside the nav closes the dropdown
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeMenu();
+  }, { passive: true });
 
   /* ============================================================
      2. SCROLL PROGRESS BAR
@@ -595,7 +620,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   ['nav-book-btn', 'hero-book-btn', 'mobile-book-btn'].forEach(id => {
     document.getElementById(id)?.addEventListener('click', () => {
       document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
-      mobileMenu.classList.remove('open');
+      closeMenu();
     });
   });
 
